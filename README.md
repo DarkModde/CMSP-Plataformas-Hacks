@@ -19,7 +19,7 @@
   &nbsp;
     <a href="https://github.com/marcos10pc/expansao-noturna-cheeto"><img width="10%" alt="Expansão Noturno" title="Expansão Noturno" src="https://i.imgur.com/gjvdhbo.png"/></a>
     &nbsp;
-    <a href="#"><img width="10%" alt="Khan Academy" title="Khan Academy" src="https://i.imgur.com/C9wQOe7.png"/></a>
+    <a href="https://github.com/Snowxyrzk/Khan-Destroyer"><img width="10%" alt="Khan Academy" title="Khan Academy" src="https://i.imgur.com/C9wQOe7.png"/></a>
   &nbsp;
     <a href="https://matific.cupiditys.lol/dashboard"><img width="10%" alt="Matific" title="Matific" src="https://i.imgur.com/L2kjjO9.png"/></a>
   &nbsp;
