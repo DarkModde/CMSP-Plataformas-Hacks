@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMSP Plataformas Hacks</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            margin-top: 40px;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .typing-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            min-height: 60px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 42px;
+            background-color: #fff;
+            margin-left: 5px;
+            animation: blink 1s infinite;
+            position: relative;
+            top: 5px;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: #cccccc;
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            padding-bottom: 30px;
+        }
+        
+        .button {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #303030, #1a1a1a);
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            min-width: 150px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: 0.5s;
+        }
+        
+        .button:hover:before {
+            left: 100%;
+        }
+        
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #404040, #252525);
+        }
+        
+        .button:active {
+            transform: translateY(1px);
+        }
+        
+        .special-buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+            padding-bottom: 60px;
+        }
+        
+        .special-button {
+            padding: 12px 24px;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            min-width: 150px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .special-button.website {
+            background: linear-gradient(135deg, #4a69bd, #1e3799);
+        }
+        
+        .special-button.donation {
+            background: linear-gradient(135deg, #6ab04c, #4cd137);
+        }
+        
+        .special-button.discord {
+            background: linear-gradient(135deg, #7289da, #5865f2);
+        }
+        
+        .special-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .special-button:hover:before {
+            left: 100%;
+        }
+        
+        .special-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .special-button:active {
+            transform: translateY(1px);
+        }
+        
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+            100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); }
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: -350px;
+            width: 300px;
+            background: linear-gradient(135deg, #252525, #101010);
+            border-left: 4px solid #4CAF50;
+            border-radius: 5px;
+            padding: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 1000;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            transform: translateX(0);
+        }
+        
+        .notification.show {
+            right: 20px;
+            opacity: 1;
+            animation: wiggle 0.8s ease-in-out;
+        }
+        
+        .notification.hide {
+            opacity: 0;
+            transform: translateX(100px) scale(0.8);
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0); }
+            15% { transform: rotate(5deg); }
+            30% { transform: rotate(-5deg); }
+            45% { transform: rotate(3deg); }
+            60% { transform: rotate(-3deg); }
+            75% { transform: rotate(1deg); }
+            90% { transform: rotate(-1deg); }
+        }
+        
+        .notification-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #4CAF50;
+        }
+        
+        .notification-message {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .notification-button-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .notification-button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .notification-button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .notification-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .notification-button:hover:before {
+            left: 100%;
+        }
+        
+        .footer {
+            width: 100%;
+            margin-top: auto;
+            background: linear-gradient(to bottom, transparent, #080808);
+            padding: 40px 20px 20px;
+        }
+        
+        .credits-section {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        
+        .about-section {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 20px;
+            background: rgba(30, 30, 30, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+        
+        .about-content {
+            text-align: left;
+            color: #cccccc;
+            line-height: 1.6;
+        }
+        
+        .credits-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+        
+        .credit-category-title {
+            font-size: 1.4rem;
+            margin: 20px 0;
+            color: #e0e0e0;
+            text-align: center;
+        }
+        
+        .credits-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .credits-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .credits-column {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+        
+        .developers-title {
+            margin-top: 40px;
+        }
+        
+        .credit-card {
+            width: 150px;
+            background: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+        }
+        
+        .credit-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .credit-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            background: #333;
+            transition: all 0.3s ease;
+        }
+        
+        .credit-card:hover .credit-img {
+            filter: brightness(1.1);
+        }
+        
+        .credit-name {
+            padding: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .loading-spinner {
+            width: 100%;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #7289da;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .typing-title {
+                font-size: 1.8rem;
+                min-height: 45px;
+            }
+            
+            .typing-cursor {
+                height: 32px;
+            }
+            
+            .description {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+            
+            .button, .special-button {
+                padding: 10px 20px;
+                min-width: 120px;
+                font-size: 0.9rem;
+            }
+            
+            .notification {
+                width: 250px;
+            }
+            
+            .credit-card {
+                width: 120px;
+            }
+            
+            .credit-img {
+                height: 120px;
+            }
+            
+            .about-content {
+                font-size: 0.9rem;
+            }
+            
+            .credits-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .credits-column {
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .typing-title {
+                font-size: 1.5rem;
+                min-height: 38px;
+            }
+            
+            .typing-cursor {
+                height: 28px;
+                top: 3px;
+            }
+            
+            .button, .special-button {
+                min-width: 140px;
+            }
+            
+            .credits-container {
+                gap: 15px;
+            }
+            
+            .credit-card {
+                width: 100px;
+            }
+            
+            .credit-img {
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="typing-title" id="title"></h1><span class="typing-cursor"></span>
+        
+        <div class="description">
+            <p>Olá bem vindo ao site do CMSP Plataformas Hacks aonde você encontra os melhores metodos, scripts e hacks para facilitar as suas tarefas da escola</p>
+        </div>
+        
+        <div class="buttons-container">
+            <a href="https://github.com/Snowxyrzk/Khan-Destroyer" class="button" onmouseover="animateButton(this)" onmouseout="stopAnimation(this)" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-graduation-cap"></i> Khan Academy</a>
+            <a href="https://github.com/marcos10pc/Alura-Destroyer" class="button" onmouseover="animateButton(this)" onmouseout="stopAnimation(this)" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-laptop-code"></i> Alura</a>
+            <a href="https://doritus.mmrcoss.tech/" class="button" onmouseover="animateButton(this)" onmouseout="stopAnimation(this)" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-tasks"></i> Tarefa SP</a>
+            <a href="https://github.com/marcos10pc/Cheeto-Essay-Maker" class="button" onmouseover="animateButton(this)" onmouseout="stopAnimation(this)" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-pen-fancy"></i> Redação Paulista</a>
+            <a href="https://speakify.cupiditys.lol/" class="button" onmouseover="animateButton(this)" onmouseout="stopAnimation(this)" data-aos="fade-up" data-aos-delay="500"><i class="fas fa-comments"></i> SPeak</a>
+            <a href="https://github.com/marcos10pc/expansao-noturna-cheeto" class="button" onmouseover="animateButton(this)" onmouseout="stopAnimation(this)" data-aos="fade-up" data-aos-delay="600"><i class="fas fa-moon"></i> Expansão Noturno</a>
+            <a href="https://matific.cupiditys.lol/" class="button" onmouseover="animateButton(this)" onmouseout="stopAnimation(this)" data-aos="fade-up" data-aos-delay="700"><i class="fas fa-calculator"></i> Matific</a>
+        </div>
+        
+        <div class="special-buttons-container">
+            <a href="https://darkmodde.github.io" class="special-button website" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-globe"></i> Website</a>
+            <a href="https://pixgg.com/DarkMode" class="special-button donation" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-hand-holding-heart"></i> Doação</a>
+            <a href="https://discord.gg/platformdestroyer" class="special-button discord" data-aos="fade-up" data-aos-delay="300"><i class="fab fa-discord"></i> Discord</a>
+        </div>
+    </div>
+    
+    <div class="notification" id="donation-notification">
+        <div class="notification-title">Ajude o Projeto!</div>
+        <div class="notification-message">Suas doações são essenciais para mantermos este projeto. Contribua para continuarmos ajudando estudantes.</div>
+        <div class="notification-button-container">
+            <button class="notification-button" onclick="goToDonation()"><i class="fas fa-heart"></i> Doar Agora</button>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="about-section" data-aos="fade-up">
+            <h2 class="section-title">Sobre</h2>
+            <div class="about-content">
+                <p>Olá, bem-vindo ao site do CMSP Plataformas Hacks! Aqui vocês vão encontrar os melhores métodos, scripts e hacks para facilitar e automatizar suas tarefas da escola. Temos TODAS as plataformas do Sala do Futuro — então aproveitem!</p>
+                <br>
+                <p>Nossa equipe é formada por desenvolvedores e estudantes que já não aguentam mais essas plataformas de São Paulo, que não fazem diferença nenhuma e só atrapalham a vida dos alunos. Por isso estamos aqui: para facilitar a vida de vocês, alunos. Obrigado por apoiarem nossos projetos.</p>
+                <br>
+                <p><strong>Ass:</strong> <\DarkMode></p>
+            </div>
+        </div>
+
+        <br><br><br><br><br>
+        
+        <div class="credits-section">
+            
+            <div class="credits-row">
+                <div class="credits-column">
+                    <h3 class="credit-category-title" data-aos="fade-up">Fundadores</h3>
+                    <div class="credits-container" id="owners-container"></div>
+                </div>
+                
+                <div class="credits-column">
+                    <h3 class="credit-category-title" data-aos="fade-up">Co-Fundadores</h3>
+                    <div class="credits-container" id="coleaders-container"></div>
+                </div>
+            </div>
+            
+            <h3 class="credit-category-title developers-title" data-aos="fade-up">Desenvolvedores</h3>
+            <div class="credits-container" id="developers-container"></div>
+            
+            <div class="copyright">© 2025 CMSP Plataformas Hacks - Todos os direitos reservados</div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.keyCode === 123) {
+                e.preventDefault();
+                return false;
+            }
+            
+            if ((e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67))) {
+                e.preventDefault();
+                return false;
+            }
+            
+            if (e.ctrlKey && e.keyCode === 85) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        function detectDevTools() {
+            const widthThreshold = window.outerWidth - window.innerWidth > 160;
+            const heightThreshold = window.outerHeight - window.innerHeight > 160;
+            
+            if (widthThreshold || heightThreshold) {
+                document.body.innerHTML = '<h1 style="text-align:center;margin-top:50px;">Inspeção de elementos não é permitida neste site.</h1>';
+            }
+        }
+
+        setInterval(detectDevTools, 1000);
+
+        window.addEventListener('devtoolschange', function(e) {
+            if (e.detail.open) {
+                document.body.innerHTML = '<h1 style="text-align:center;margin-top:50px;">Inspeção de elementos não é permitida neste site.</h1>';
+            }
+        });
+        
+        const titleText = "CMSP Plataformas Hacks";
+        const titleElement = document.getElementById("title");
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingDelay = 150;
+        let deletingDelay = 50;
+        let newTextDelay = 2000;
+        
+        function typeTitle() {
+            const currentText = titleElement.textContent;
+            
+            if (!isDeleting && charIndex < titleText.length) {
+                titleElement.textContent = titleText.substring(0, charIndex + 1);
+                charIndex++;
+                setTimeout(typeTitle, typingDelay);
+            } else if (isDeleting && charIndex > 0) {
+                titleElement.textContent = titleText.substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(typeTitle, deletingDelay);
+            } else if (charIndex === titleText.length) {
+                isDeleting = true;
+                setTimeout(typeTitle, newTextDelay);
+            } else if (charIndex === 0) {
+                isDeleting = false;
+                setTimeout(typeTitle, typingDelay);
+            }
+        }
+        
+        function showNotification() {
+            const notification = document.getElementById('donation-notification');
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.add('hide');
+                notification.classList.remove('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('hide');
+                    notification.style.right = '-350px';
+                }, 500);
+            }, 5000);
+        }
+        
+        function goToDonation() {
+            window.location.href = "https://pixgg.com/DarkMode";
+        }
+        
+        function animateButton(button) {
+            button.style.animation = "glow 1.5s infinite";
+        }
+        
+        function stopAnimation(button) {
+            button.style.animation = "";
+        }
+
+        const owners = [
+            { id: "701558357286191204", name: "Hyxam" },
+            { id: "358074964533837825", name: "Kontra" }
+        ];
+        
+        const coLeaders = [
+            { id: "1134639635780350142", name: "Seven" },
+            { id: "418824536570593280", name: "M4nst3in" }
+        ];
+        
+        const developers = [
+            { id: "1080175803024814142", name: "<\\DarkMode>" },
+            { id: "597913546239508490", name: "iUnknownBr" },
+            { id: "306067032913477634", name: "Snow" },
+            { id: "582610632562704395", name: "Marcos10pc" },
+            { id: "852703201068187668", name: "Cupidys" },
+            { id: "769197514363764736", name: "Flowings" }
+        ];
+
+        async function fetchDiscordAvatar(userId) {
+            try {
+                const response = await fetch(`https://discord-lookup-api-sandy.vercel.app/v1/user/${userId}`);
+                const data = await response.json();
+                
+                if (data && data.avatar && data.avatar.link) {
+                    return `${data.avatar.link}.png?size=2048`;
+                } else {
+                    return null;
+                }
+            } catch (error) {
+                console.error(`Erro ao buscar avatar para ID ${userId}:`, error);
+                return null;
+            }
+        }
+
+        async function createCreditCard(userId, userName) {
+            const creditCard = document.createElement('div');
+            creditCard.className = 'credit-card';
+            creditCard.setAttribute('data-aos', 'zoom-in');
+            
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'loading-spinner';
+            const spinner = document.createElement('div');
+            spinner.className = 'spinner';
+            loadingDiv.appendChild(spinner);
+            creditCard.appendChild(loadingDiv);
+            
+            const nameDiv = document.createElement('div');
+            nameDiv.className = 'credit-name';
+            nameDiv.textContent = userName;
+            creditCard.appendChild(nameDiv);
+            
+            const avatarUrl = await fetchDiscordAvatar(userId);
+            
+            creditCard.removeChild(loadingDiv);
+            
+            const img = document.createElement('img');
+            img.className = 'credit-img';
+            img.alt = userName;
+            
+            if (avatarUrl) {
+                img.src = avatarUrl;
+            } else {
+                img.src = "/api/placeholder/150/150";
+            }
+            
+            creditCard.insertBefore(img, nameDiv);
+            
+            return creditCard;
+        }
+
+        async function loadCreditCards() {
+            const ownersContainer = document.getElementById('owners-container');
+            for (const user of owners) {
+                const card = await createCreditCard(user.id, user.name);
+                ownersContainer.appendChild(card);
+            }
+            
+            const coLeadersContainer = document.getElementById('coleaders-container');
+            for (const user of coLeaders) {
+                const card = await createCreditCard(user.id, user.name);
+                coLeadersContainer.appendChild(card);
+            }
+            
+            const developersContainer = document.getElementById('developers-container');
+            for (const user of developers) {
+                const card = await createCreditCard(user.id, user.name);
+                developersContainer.appendChild(card);
+            }
+        }
+        
+        window.onload = function() {
+            setTimeout(typeTitle, 1000);
+            setTimeout(showNotification, 1000);
+            loadCreditCards();
+            AOS.init({
+                duration: 800,
+                easing: 'ease',
+                once: false,
+                mirror: false
+            });
+        }
+    </script>
+</body>
+</html>
