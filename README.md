@@ -13,19 +13,19 @@
 ---
 
 <p align="center">
-    <a href="https://darkmodde.github.io/CMSP-Hacks/"><img width="10%" alt="TarefasSP" title="TarefasSP" src="https://i.imgur.com/XICsgcH.png"/></a>
+    <a href="https://darkmodde.xyz/CMSP-Hacks"><img width="10%" alt="TarefasSP" title="TarefasSP" src="https://i.imgur.com/XICsgcH.png"/></a>
   &nbsp;
-    <a href="https://darkmodde.github.io/CMSP-Hacks/"><img width="10%" alt="Redação Paulista" title="Redação Paulista" src="https://i.imgur.com/l3lXH90.png"/></a>
+    <a href="https://darkmodde.xyz/CMSP-Hacks"><img width="10%" alt="Redação Paulista" title="Redação Paulista" src="https://i.imgur.com/l3lXH90.png"/></a>
   &nbsp;
-    <a href="https://darkmodde.github.io/CMSP-Hacks/"><img width="10%" alt="Expansão Noturno" title="Expansão Noturno" src="https://i.imgur.com/gjvdhbo.png"/></a>
+    <a href="https://darkmodde.xyz/CMSP-Hacks"><img width="10%" alt="Expansão Noturno" title="Expansão Noturno" src="https://i.imgur.com/gjvdhbo.png"/></a>
     &nbsp;
-    <a href="https://darkmodde.github.io/CMSP-Hacks/"><img width="10%" alt="Khan Academy" title="Khan Academy" src="https://i.imgur.com/C9wQOe7.png"/></a>
+    <a href="https://darkmodde.xyz/CMSP-Hacks"><img width="10%" alt="Khan Academy" title="Khan Academy" src="https://i.imgur.com/C9wQOe7.png"/></a>
   &nbsp;
-    <a href="https://darkmodde.github.io/CMSP-Hacks/"><img width="10%" alt="Matific" title="Matific" src="https://i.imgur.com/L2kjjO9.png"/></a>
+    <a href="https://darkmodde.xyz/CMSP-Hacks"><img width="10%" alt="Matific" title="Matific" src="https://i.imgur.com/L2kjjO9.png"/></a>
   &nbsp;
-    <a href="https://darkmodde.github.io/CMSP-Hacks/"><img width="10%" alt="SPeak" title="SPeak" src="https://i.imgur.com/pix66D5.png"/></a>
+    <a href="https://darkmodde.xyz/CMSP-Hacks"><img width="10%" alt="SPeak" title="SPeak" src="https://i.imgur.com/pix66D5.png"/></a>
   &nbsp;
-    <a href="https://darkmodde.github.io/CMSP-Hacks/"><img width="10%" alt="Alura" title="Alura" src="https://i.imgur.com/Lyhs87G.png"/></a>
+    <a href="https://darkmodde.xyz/CMSP-Hacks"><img width="10%" alt="Alura" title="Alura" src="https://i.imgur.com/Lyhs87G.png"/></a>
 </p>
 
 <br>
